@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Замовлення таксі</string>
+    <string name="from_lable">Звідки</string>
+    <string name="where_lable">Куди</string>
+    <string name="type">Тип екіпажу</string>
+    <string name="price">Ціна замовлення</string>
+    <string name="button_text">Замовити</string>
+    <string name="hint">Адрес</string>
+</resources>
