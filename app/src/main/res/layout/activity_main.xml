@@ -31,7 +31,7 @@
                 android:text="@string/from_lable" />
 
             <EditText
-                android:id="@+id/input1"
+                android:id="@+id/fromAddress"
                 style="@style/Widget.AppCompat.AutoCompleteTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
                 android:autofillHints=""
                 android:ems="8"
                 android:inputType="textPersonName"
-                android:labelFor="@+id/input1"
+                android:labelFor="@+id/fromAddress"
                 android:hint="@string/hint"
                 android:text="" />
 
@@ -60,7 +60,7 @@
                 android:text="@string/where_lable" />
 
             <EditText
-                android:id="@+id/input2"
+                android:id="@+id/toAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -73,6 +73,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/carId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -122,6 +123,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -130,6 +132,7 @@
                 android:text="@string/price" />
 
             <Button
+                android:id="@+id/buttonGet"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

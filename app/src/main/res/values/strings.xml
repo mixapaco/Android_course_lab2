@@ -6,4 +6,5 @@
     <string name="price">Ціна замовлення</string>
     <string name="button_text">Замовити</string>
     <string name="hint">Адрес</string>
+    <string name="error">Помилка</string>
 </resources>

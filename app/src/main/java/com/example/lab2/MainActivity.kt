@@ -6,15 +6,67 @@ import androidx.room.Room
 import db.AddDatabase
 import db.Order
 import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import json.JsonData
+import json.TestApiService
 
 class MainActivity : AppCompatActivity() {
     private lateinit var db: AddDatabase
+    lateinit var fromAddress: TextView
+    lateinit var toAddress: TextView
+    lateinit var carId: TextView
+    lateinit var price: TextView
+    lateinit var buttonGet: Button
 
+
+    private fun initView(){
+        fromAddress =  findViewById(R.id.fromAddress)
+        toAddress =  findViewById(R.id.toAddress)
+        carId =  findViewById(R.id.carId)
+        price =  findViewById(R.id.price)
+        buttonGet = findViewById(R.id.buttonGet)
+        buttonGet.setOnClickListener {
+            loadData()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initDatabase()
+        initView()
     }
+
+    private fun loadData() {
+        Log.d("API", "loadData")
+        val service = TestApiService()
+        service.getData(object : TestApiService.DataCallback {
+            override fun onSuccess(data: JsonData) {
+                displayData(data)
+            }
+            override fun onFailure() {
+                displayError()
+            }
+        })
+    }
+    private fun displayData(data: JsonData) {
+        Log.d("API", "${data.getToAddress()}")
+        Log.d("API", "${data.getFromAddress()}")
+        Log.d("API", "${data.getCarId()}")
+        Log.d("API", "${data.getTime()}")
+        Log.d("API", "${data.getPrice()}")
+        fromAddress.setText("${data.getFromAddress()}")
+        toAddress.setText("${data.getToAddress()}")
+        carId.setText("Машина ${data.getCarId()} і час: ${data.getTime()}")
+        price.setText("Ціна: ${data.getPrice()}")
+    }
+    private fun displayError() {
+        Log.d("API", "error loading data")
+        Toast.makeText(MainActivity@ this, R.string.error, Toast.LENGTH_LONG).show()
+    }
+
 
     override fun onResume() {
         super.onResume()
