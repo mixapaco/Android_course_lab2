@@ -1,4 +1,4 @@
-package json
+package com.example.lab2.data.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
